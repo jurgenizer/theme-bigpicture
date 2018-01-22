@@ -19,9 +19,18 @@ $perPagePublic = get_option('per_page_public')
             <?php foreach (loop('items') as $item): ?>
             <?php $itemTitle = metadata('item', 'display_title'); ?>
             <div class="item hentry">
+                
+                /* remove and replace thumbnail with has files
                 <?php if (metadata('item', 'has thumbnail')): ?>
+                */
+               <?php if (metadata('item', 'has files')): ?>
+                
                 <div class="item-img">
+                     /* remove and replace fullsize with thumbnail
                     <?php echo link_to_item(item_image('fullsize', array('alt' => $itemTitle))); ?>
+                    */
+                    <?php echo link_to_item(item_image('thumbnail', array('alt' => $itemTitle))); ?>
+                    
                 </div>
                 <?php endif; ?>
                 <div class="item-meta">
